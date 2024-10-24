@@ -2,7 +2,6 @@
   lib,
   stdenv,
   buildNpmPackage,
-  fetchFromGitLab,
   nodePackages,
   meson,
   pkg-config,
@@ -18,6 +17,7 @@
   glib-networking,
   networkmanager,
   libdbusmenu-gtk3,
+  fetchFromGitHub,
   gvfs,
   libsoup_3,
   libnotify,
@@ -28,12 +28,11 @@
 }: let
   pname = "ags";
 
-  gvc-src = fetchFromGitLab {
-    domain = "gitlab.gnome.org";
+  gvc-src = fetchFromGitHub {
     owner = "GNOME";
     repo = "libgnome-volume-control";
-    rev = "8e7a5a4c3e51007ce6579292642517e3d3eb9c50";
-    sha256 = "sha256-FosJwgTCp6/EI6WVbJhPisokRBA6oT0eo7d+Ya7fFX8=";
+    rev = "master";
+    sha256 = "sha256-gdgTnxzH8BeYQAsvv++Yq/8wHi7ISk2LTBfU8hk12NM=";
   };
 in
   stdenv.mkDerivation {
